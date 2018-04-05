@@ -5,7 +5,7 @@ import 'package:redux/redux.dart';
 /// Personal Packages
 import 'package:anniversary/widgets/store_widget.dart';
 import 'package:anniversary/reducers/update_time_reducer.dart';
-import 'package:anniversary/pages/home.dart';
+import 'package:anniversary/pages/home_page.dart';
 import 'package:anniversary/themes/iOS_theme.dart';
 
 class AnniversaryApp extends StatelessWidget {
