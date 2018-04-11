@@ -1,6 +1,7 @@
 /// Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter/cupertino.dart';
 
 /// Dart Packages
 import 'dart:async';
@@ -35,10 +36,9 @@ class AnniversaryHomePage extends StatelessWidget {
         title: inheritedWidget.title,
         theme: Theme.of(context),
         home: new Scaffold(
-          appBar: new AppBar(
-            title: new Text(inheritedWidget.title),
-            elevation: 0.0,
-          ),
+          appBar: Theme.of(context).platform == TargetPlatform.iOS
+              ? createCupertinoNavigationBar(inheritedWidget)
+              : createAppBar(inheritedWidget),
           body: new Center(
             child: new ListView(
               padding: new EdgeInsets.only(left: 20.0, right: 20.0),
@@ -58,3 +58,28 @@ class AnniversaryHomePage extends StatelessWidget {
     );
   }
 }
+
+createAppBar(inheritedWidget) =>
+  new AppBar(
+    title: new Text(inheritedWidget.title),
+    actions: <Widget>[
+      new IconButton(
+          icon: new Icon(
+            Icons.settings,
+            color: Colors.black,
+          ),
+          onPressed: null),
+    ],
+  );
+
+createCupertinoNavigationBar(inheritedWidget) =>
+    new CupertinoNavigationBar(
+      middle: new Text(inheritedWidget.title),
+      trailing: new IconButton(
+          icon: new Icon(
+            Icons.settings,
+            color: CupertinoColors.black,
+          ),
+          onPressed: null
+      ),
+    );
