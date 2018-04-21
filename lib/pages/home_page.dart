@@ -25,7 +25,7 @@ import 'package:anniversary/widgets/list_unit_widget.dart';
 import 'package:anniversary/widgets/store_widget.dart';
 import 'package:anniversary/widgets/change_date_and_time_widget.dart';
 
-class AnniversaryHomePage extends StatelessWidget {
+class AnniversaryHomePage extends StatefulWidget {
   /// Attributes
   final Duration refreshRate;
 
@@ -34,6 +34,16 @@ class AnniversaryHomePage extends StatelessWidget {
     Key key,
     this.refreshRate: const Duration(minutes: 1),
   }) : super(key: key);
+
+
+  /// Widget Methods
+  @override
+  _AnniversaryHomePageState createState() => new _AnniversaryHomePageState();
+}
+
+class _AnniversaryHomePageState extends State<AnniversaryHomePage> {
+  /// Attributes
+  Timer _timer;
 
   /// Methods
 
@@ -118,7 +128,8 @@ class AnniversaryHomePage extends StatelessWidget {
       ),
     );
 
-    new Timer.periodic(this.refreshRate, (Timer timer) => _updateDisplayTime(inheritedWidget));
+    this._timer = new Timer.periodic(widget.refreshRate, (Timer timer) =>
+        _updateDisplayTime(inheritedWidget));
 
     return new StoreProvider<DateTime>(
       store: inheritedWidget.store,
@@ -154,6 +165,13 @@ class AnniversaryHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Cancel [_timer], so resources aren't being used.
+  @override
+  void dispose() {
+    this._timer.cancel();
+    super.dispose();
   }
 }
 
