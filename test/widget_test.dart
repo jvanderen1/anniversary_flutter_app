@@ -21,6 +21,6 @@ void main() {
     // Should not find any #'s in any widgets.
     expect(find.text('#'), findsNothing);
 
-    // TODO: Write Tests where Anniversarry Date after DateTime.now()
+    // TODO: Write Tests where Anniversary Date after DateTime.now()
   });
 }
