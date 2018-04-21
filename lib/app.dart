@@ -1,38 +1,48 @@
+/// Filename: app.dart
+///
+/// Description:
+/// Used to create a store for anniversary information and start the home page.
+///
+/// While [FutureBuilder] gathers the needed [SharedPreferences], an empty
+/// [Container] will be provided. Once complete, a new [StoreInheritedWidget]
+/// is created and the starting page leads to [AnniversaryHomePage].
+///
+/// Updated: 04.20.2018
+
 /// Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// Personal Packages
 import 'package:anniversary/widgets/store_widget.dart';
 import 'package:anniversary/reducers/update_time_reducer.dart';
 import 'package:anniversary/pages/home_page.dart';
-import 'package:anniversary/themes/iOS_theme.dart';
+import 'package:anniversary/themes/app_theme.dart' show appTheme;
 
 class AnniversaryApp extends StatelessWidget {
   /// Attributes
   final String title;
-  final DateTime anniversary;
+  final SharedPreferences prefs;
 
   /// Constructors
   const AnniversaryApp({
     this.title,
-    this.anniversary,
+    this.prefs
   });
 
-  /// Widgets
+  /// Widget Methods
   @override
   Widget build(BuildContext context) {
     return new StoreInheritedWidget(
-      title: this.title,
-      anniversary: this.anniversary,
-      store: new Store<DateTime>(updateTimeReducer, initialState: updateTime(anniversary)),
-      child: new MaterialApp(
+        title: this.title,
+        store: new Store<DateTime>(updateTimeReducer),
+        prefs: this.prefs,
+        child: new MaterialApp(
           title: this.title,
-          theme: kIOSTheme,
-          home: new AnniversaryHomePage(
-            refreshRate: const Duration(seconds: 5),
-          ),
-      )
+          home: new AnniversaryHomePage(refreshRate: const Duration(seconds: 10),),
+          theme: appTheme,
+        )
     );
   }
 }
