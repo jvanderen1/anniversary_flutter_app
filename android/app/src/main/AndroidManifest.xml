@@ -1,11 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.deren.van.joshua.anniversary">
+    android:versionCode="1"
+    android:versionName="1.0"
 
     <!-- The INTERNET permission is required for development. Specifically,
          flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
-    -->
+
     <uses-permission android:name="android.permission.INTERNET"/>
+    -->
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -14,8 +17,8 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="anniversary"
-        android:icon="@mipmap/ic_launcher"
+        android:label="Anniversary"
+        android:icon="@mipmap/if_calendar"
         android:hardwareAccelerated="true">
         <activity
             android:name=".MainActivity"
