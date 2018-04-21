@@ -36,7 +36,7 @@ class ListTimeWidget extends StatelessWidget {
 
     /// Only go here if the time value is incorrect.
     if (store.state == null) {
-      return '##';
+      return '#';
     }
 
     Map<String, int> timeDelta = {
