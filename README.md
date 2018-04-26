@@ -20,11 +20,11 @@ J. V. D.
 
 ## Look And Feel
 
-#### Android
+#### Android: https://play.google.com/store/apps/details?id=com.deren.van.joshua.anniversary
 
 <img alt="Screenshot - Android" src="https://user-images.githubusercontent.com/22926257/39201173-05253ad0-47a3-11e8-8eff-d7954b64ab09.png" width="200">
 
-#### iOS
+#### iOS: https://itunes.apple.com/us/app/anniversary-application/id1376994308?ls=1&mt=8
 
 <img alt="Screenshot - iOS" src="https://user-images.githubusercontent.com/22926257/39201606-63469478-47a4-11e8-8941-ca4ef7f54f63.png" width="200">
 
